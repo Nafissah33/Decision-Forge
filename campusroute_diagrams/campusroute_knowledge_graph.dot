@@ -1,0 +1,36 @@
+digraph CampusRouteKnowledge {
+graph [rankdir=LR, bgcolor="white", pad="0.32", nodesep="0.4", ranksep="1.05", fontname="Arial", label="CampusRoute | Knowledge graph — illustrative input", labelloc=t, fontsize=20, fontcolor="#18324B"];
+node [fontname="Arial", fontsize=11, shape=box, style="rounded,filled", fillcolor="#F0F5FB", color="#A2B4C7", fontcolor="#18324B"];
+edge [fontname="Arial", fontsize=9, color="#8C99AA", fontcolor="#506172", arrowsize=0.7];
+"Maya" [label="Maya", fillcolor="#DBEAFE"];
+"Campus" [label="Campus", fillcolor="#D3F4DF"];
+"Maya" -> "Campus" [label="needs to reach"];
+"$10.00" [label="$10.00", fillcolor="#F6F7FA"];
+"Maya" -> "$10.00" [label="has budget"];
+"09:00" [label="09:00", fillcolor="#F6F7FA"];
+"Maya" -> "09:00" [label="has deadline"];
+"Weather" [label="Weather", fillcolor="#F6F7FA"];
+"clear" [label="clear", fillcolor="#F6F7FA"];
+"Weather" -> "clear" [label="condition"];
+"Bus" [label="Bus", fillcolor="#D3F4DF"];
+"Maya" -> "Bus" [label="can consider"];
+"Bus" -> "Campus" [label="travels to"];
+"$3.00" [label="$3.00", fillcolor="#F6F7FA"];
+"Bus" -> "$3.00" [label="has fare"];
+"08:50" [label="08:50", fillcolor="#F6F7FA"];
+"Bus" -> "08:50" [label="arrives at"];
+"Train" [label="Train", fillcolor="#D3F4DF"];
+"Maya" -> "Train" [label="can consider"];
+"Train" -> "Campus" [label="travels to"];
+"$6.00" [label="$6.00", fillcolor="#F6F7FA"];
+"Train" -> "$6.00" [label="has fare"];
+"08:30" [label="08:30", fillcolor="#F6F7FA"];
+"Train" -> "08:30" [label="arrives at"];
+"Backup" [label="Uber (backup)", fillcolor="#D3F4DF"];
+"Maya" -> "Backup" [label="can consider"];
+"Backup" -> "Campus" [label="travels to"];
+"$12.00" [label="$12.00", fillcolor="#F6F7FA"];
+"Backup" -> "$12.00" [label="has fare"];
+"08:40" [label="08:40", fillcolor="#F6F7FA"];
+"Backup" -> "08:40" [label="arrives at"];
+}
