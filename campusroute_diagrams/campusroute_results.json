@@ -1,0 +1,272 @@
+{
+  "recommended": "train",
+  "ranked_eligible": [
+    "train",
+    "bus"
+  ],
+  "summary": "Recommend train: it meets all required conditions. Estimated campus arrival 08:30, fare $6.00, reliability 5/5. Ranking priority: earliest.",
+  "options": {
+    "bus": {
+      "eligible": true,
+      "propositions": {
+        "S": true,
+        "F": true,
+        "D": true,
+        "W": true
+      },
+      "expression": "S ∧ F ∧ D ∧ W",
+      "fare": 3.0,
+      "departure": "08:00",
+      "campus_arrival": "08:50",
+      "arrival_minutes": 530.0,
+      "walk_total_minutes": 20.0,
+      "reliability": 3,
+      "explanation": "service is operating; fare $3.00 is within budget $10.00; campus arrival 08:50 is before deadline 09:00; walking (20 min) is acceptable for clear weather",
+      "failed_conditions": [],
+      "decision_path": [
+        {
+          "question": "Operating?",
+          "passed": true
+        },
+        {
+          "question": "Affordable?",
+          "passed": true
+        },
+        {
+          "question": "Before deadline?",
+          "passed": true
+        },
+        {
+          "question": "Walking acceptable?",
+          "passed": true
+        }
+      ]
+    },
+    "train": {
+      "eligible": true,
+      "propositions": {
+        "S": true,
+        "F": true,
+        "D": true,
+        "W": true
+      },
+      "expression": "S ∧ F ∧ D ∧ W",
+      "fare": 6.0,
+      "departure": "08:00",
+      "campus_arrival": "08:30",
+      "arrival_minutes": 510.0,
+      "walk_total_minutes": 10.0,
+      "reliability": 5,
+      "explanation": "service is operating; fare $6.00 is within budget $10.00; campus arrival 08:30 is before deadline 09:00; walking (10 min) is acceptable for clear weather",
+      "failed_conditions": [],
+      "decision_path": [
+        {
+          "question": "Operating?",
+          "passed": true
+        },
+        {
+          "question": "Affordable?",
+          "passed": true
+        },
+        {
+          "question": "Before deadline?",
+          "passed": true
+        },
+        {
+          "question": "Walking acceptable?",
+          "passed": true
+        }
+      ]
+    },
+    "backup": {
+      "eligible": false,
+      "propositions": {
+        "S": true,
+        "F": false,
+        "D": true,
+        "W": true
+      },
+      "expression": "S ∧ F ∧ D ∧ W",
+      "fare": 12.0,
+      "departure": "08:10",
+      "campus_arrival": "08:40",
+      "arrival_minutes": 520.0,
+      "walk_total_minutes": 5.0,
+      "reliability": 4,
+      "explanation": "service is operating; fare $12.00 exceeds budget $10.00; campus arrival 08:40 is before deadline 09:00; walking (5 min) is acceptable for clear weather",
+      "failed_conditions": [
+        "fare $12.00 exceeds budget $10.00"
+      ],
+      "decision_path": [
+        {
+          "question": "Operating?",
+          "passed": true
+        },
+        {
+          "question": "Affordable?",
+          "passed": false
+        }
+      ]
+    }
+  },
+  "knowledge_graph_edges": [
+    [
+      "Maya",
+      "needs to reach",
+      "Campus"
+    ],
+    [
+      "Maya",
+      "has budget",
+      "$10.00"
+    ],
+    [
+      "Maya",
+      "has deadline",
+      "09:00"
+    ],
+    [
+      "Weather",
+      "condition",
+      "clear"
+    ],
+    [
+      "Maya",
+      "can consider",
+      "Bus"
+    ],
+    [
+      "Bus",
+      "travels to",
+      "Campus"
+    ],
+    [
+      "Bus",
+      "has fare",
+      "$3.00"
+    ],
+    [
+      "Bus",
+      "arrives at",
+      "08:50"
+    ],
+    [
+      "Maya",
+      "can consider",
+      "Train"
+    ],
+    [
+      "Train",
+      "travels to",
+      "Campus"
+    ],
+    [
+      "Train",
+      "has fare",
+      "$6.00"
+    ],
+    [
+      "Train",
+      "arrives at",
+      "08:30"
+    ],
+    [
+      "Maya",
+      "can consider",
+      "Backup"
+    ],
+    [
+      "Backup",
+      "travels to",
+      "Campus"
+    ],
+    [
+      "Backup",
+      "has fare",
+      "$12.00"
+    ],
+    [
+      "Backup",
+      "arrives at",
+      "08:40"
+    ]
+  ],
+  "adjacency_list": {
+    "Maya": [
+      {
+        "relationship": "needs to reach",
+        "target": "Campus"
+      },
+      {
+        "relationship": "has budget",
+        "target": "$10.00"
+      },
+      {
+        "relationship": "has deadline",
+        "target": "09:00"
+      },
+      {
+        "relationship": "can consider",
+        "target": "Bus"
+      },
+      {
+        "relationship": "can consider",
+        "target": "Train"
+      },
+      {
+        "relationship": "can consider",
+        "target": "Backup"
+      }
+    ],
+    "Weather": [
+      {
+        "relationship": "condition",
+        "target": "clear"
+      }
+    ],
+    "Bus": [
+      {
+        "relationship": "travels to",
+        "target": "Campus"
+      },
+      {
+        "relationship": "has fare",
+        "target": "$3.00"
+      },
+      {
+        "relationship": "arrives at",
+        "target": "08:50"
+      }
+    ],
+    "Train": [
+      {
+        "relationship": "travels to",
+        "target": "Campus"
+      },
+      {
+        "relationship": "has fare",
+        "target": "$6.00"
+      },
+      {
+        "relationship": "arrives at",
+        "target": "08:30"
+      }
+    ],
+    "Backup": [
+      {
+        "relationship": "travels to",
+        "target": "Campus"
+      },
+      {
+        "relationship": "has fare",
+        "target": "$12.00"
+      },
+      {
+        "relationship": "arrives at",
+        "target": "08:40"
+      }
+    ]
+  },
+  "rule": "Eligible = S ∧ F ∧ D ∧ W",
+  "priority": "earliest"
+}

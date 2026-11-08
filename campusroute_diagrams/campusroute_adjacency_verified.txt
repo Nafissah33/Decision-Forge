@@ -1,0 +1,32 @@
+CAMPUSROUTE — VERIFIED ADJACENCY LIST
+A directed relationship 'A --label--> B' is a connection FROM A TO B.
+Only nodes with outgoing connections are listed as headings.
+Verified: 16 labeled edges, 15 unique nodes.
+
+Maya:
+  --needs to reach--> Campus
+  --has budget--> $10.00
+  --has deadline--> 09:00
+  --can consider--> Bus
+  --can consider--> Train
+  --can consider--> Backup
+
+Weather:
+  --condition--> clear
+
+Bus:
+  --travels to--> Campus
+  --has fare--> $3.00
+  --arrives at--> 08:50
+
+Train:
+  --travels to--> Campus
+  --has fare--> $6.00
+  --arrives at--> 08:30
+
+Backup:
+  --travels to--> Campus
+  --has fare--> $12.00
+  --arrives at--> 08:40
+
+PASS: adjacency entries exactly match the knowledge-graph edges (including duplicates).
