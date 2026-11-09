@@ -16,6 +16,40 @@ def _logo_b64():
     return base64.b64encode(LOGO.read_bytes()).decode()
 
 
+def scenario_background(page):
+    """Optional per-scenario background: assets/<page>_bg.(jpg|jpeg|png|webp).
+    Dimmed, with a translucent panel behind the content so forms and tables stay readable.
+    Does nothing if the image is missing."""
+    for ext, mime in (("jpg", "jpeg"), ("jpeg", "jpeg"), ("png", "png"), ("webp", "webp")):
+        img = Path(__file__).parent / "assets" / f"{page}_bg.{ext}"
+        if img.exists():
+            break
+    else:
+        return
+    data = _file_b64(str(img))
+    st.markdown(f"""
+    <style>
+    .stApp {{
+        background-image: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)),
+                          url("data:image/{mime};base64,{data}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    .stApp .block-container {{
+        background: rgba(14, 17, 23, 0.78);
+        border-radius: 14px;
+        padding: 2rem 2.5rem;
+        margin-top: 1.5rem;
+    }}
+    </style>""", unsafe_allow_html=True)
+
+
+@st.cache_data
+def _file_b64(path):
+    return base64.b64encode(Path(path).read_bytes()).decode()
+
+
 def home_background():
     """WiCS logo behind the home page only (dimmed so the text stays readable)."""
     if not LOGO.exists():
@@ -71,4 +105,5 @@ else:
     if st.button("← Back to home"):
         st.session_state.page = "home"
         st.rerun()
+    scenario_background(st.session_state.page)
     {"commute": commute_page, "login": login_page}[st.session_state.page].show()

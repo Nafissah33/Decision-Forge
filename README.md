@@ -71,7 +71,7 @@ docs/                   Screenshots
 
 ## Testing
 
-`pytest` runs 25+ tests covering normal cases, boundary cases (arrival exactly at the deadline
+`pytest` runs 28 tests (all passing; see [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for the full results) covering normal cases, boundary cases (arrival exactly at the deadline
 is rejected, fare exactly equal to budget is accepted, walking exactly at the limit is accepted),
 invalid inputs, traversals, graph/adjacency consistency, and changed-input cases (an outage,
 a lower budget, or a different priority changes the recommendation).
