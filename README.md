@@ -1,6 +1,6 @@
 # Decision-Forge
 
-A rule-based decision assistant built with Streamlit for **COSC 208 – Discrete Structures**.
+A rule-based decision assistant built with Streamlit for **COSC-208 Discrete Structures, Fall 2026** (Instructor: Fahmina Nur Salma).
 Pick a scenario, enter facts, press **Evaluate**, and get a recommendation together with the
 logic behind it, not a black-box answer.
 
@@ -87,6 +87,6 @@ a lower budget, or a different priority changes the recommendation).
 
 | Member | Contribution |
 |---|---|
-| Nafissah | Streamlit website, homepage, project setup and structure |
-| Nia Tabe | CampusRoute logic, decision tree and knowledge-graph diagrams, tests |
-| Maya Parker | Login simulator backend |
+| Nafissatou LO | Streamlit website, homepage, project setup and structure |
+| Nia Silke Tabe | CampusRoute logic, decision tree and knowledge-graph diagrams, tests |
+| Mya Parker (Team Leader) | Login simulator backend |
