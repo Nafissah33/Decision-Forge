@@ -1,7 +1,7 @@
 
 # Test importing Scenario D functions
 
-from login import (
+from logic.login import (
     evaluate_login,
     get_truth_table,
     get_tree_traversals,

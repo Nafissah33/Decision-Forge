@@ -1,7 +1,7 @@
 """CampusRoute: decision tree, knowledge graph, and adjacency-list verification.
 
 Run in the root of the team's Decision-Forge folder:
-    python campus_route_diagrams.py
+    python diagrams/campus_route_diagrams.py
 
 Uses the EXISTING evaluator (commute_trajectory.py / Commute_trajectory.py /
 campus_route.py). Does not modify the team's Python files.
@@ -15,6 +15,10 @@ from pathlib import Path
 import json
 import shutil
 import subprocess
+import sys
+
+# Repo layout: this script lives in diagrams/, the evaluator in logic/.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 OUTPUT = Path(__file__).resolve().parent / "campusroute_diagrams"
 OPTION_NAMES = ("bus", "train", "backup")
@@ -28,11 +32,11 @@ CONDITIONS = (
 
 def get_evaluator():
     """Support BOTH names seen in the team's two GitHub repositories."""
-    for module_name in ("commute_trajectory", "Commute_trajectory", "campus_route"):
+    for module_name in ("logic.commute_trajectory", "commute_trajectory", "Commute_trajectory", "campus_route"):
         try:
             module = import_module(module_name)
         except ModuleNotFoundError as error:
-            if error.name == module_name:
+            if error.name in (module_name, module_name.split('.')[0]):
                 continue
             raise
         evaluator = getattr(module, "evaluate_campus_route", None)

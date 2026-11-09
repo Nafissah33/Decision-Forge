@@ -1,4 +1,4 @@
-"""Run: python -m unittest test_campus_route_diagrams.py -v"""
+"""Run: pytest (from the repo root)"""
 import copy
 import unittest
 from campus_route_diagrams import (get_evaluator, example_input, validate_graph,
