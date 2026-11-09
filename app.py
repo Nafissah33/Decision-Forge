@@ -52,7 +52,7 @@ if st.session_state.page == "home":
     home_background()
     st.markdown("""
     <div class="df-hero">
-      <h1>🧠 Decision-Forge</h1>
+      <h1>Decision-Forge</h1>
       <p class="tag">Think it through. Forge the decision.</p>
       <p class="sub">Logic you can see: truth tables, trees and graphs show exactly why
       every answer was chosen.</p>
